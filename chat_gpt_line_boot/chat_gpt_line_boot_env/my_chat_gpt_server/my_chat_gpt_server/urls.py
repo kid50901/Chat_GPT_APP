@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from mainapp import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('callback', views.callback),#回應訊息函式 url
 ]

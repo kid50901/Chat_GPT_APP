@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-15o)kt80+%x8+4#x1px$nzs=olrc8hc5%$2)je%+u3_d@tjc(k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['1e0f-58-64-18-116.jp.ngrok.io']
 
 
 # Application definition
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mainapp.apps.MainappConfig'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'my_chat_gpt_server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,3 +125,8 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LINE_CHANNEL_ACCESS_TOKEN = 'qcHTcLOugkdGwCDRK/e8SJtMhb+gAhGd9/0cXc8V4kK1Ronk6SSrbqKwITzVyLAwSsHPiCaPtQnwqFEQOkNT9VaoGxYr/rdrgC0TKIfqBnvExqb/P+gkf+4DgB4Xj0m4zmdXXcgqt87IO3ox/lyk9gdB04t89/1O/w1cDnyilFU='
+LINE_CHANNEL_SECRET = 'e3ce636500600f51ca460ab14d14567a'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
